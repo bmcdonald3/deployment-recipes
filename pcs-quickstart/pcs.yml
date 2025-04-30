@@ -29,7 +29,6 @@ services:
     networks:
       - internal
     user: "65534:65534"
-    entrypoint: ["/sbin/tini", "--"]
     command: ["/usr/local/bin/power-control"] 
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "http://localhost:28007/v1/health"]
