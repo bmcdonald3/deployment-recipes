@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   pcs:
     image: power-control-power-control:latest
@@ -39,7 +37,3 @@ services:
       timeout: 5s
       retries: 10
       start_period: 20s 
-
-networks:
-  internal:
-    external: true

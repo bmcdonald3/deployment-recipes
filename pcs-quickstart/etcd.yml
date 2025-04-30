@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   etcd:
     image: docker.io/bitnami/etcd:3.5
@@ -20,8 +18,3 @@ services:
       timeout: 5s
       retries: 10
       start_period: 10s
-
-networks:
-  internal:
-    # This network should already be defined as external in other compose files.
-    external: true

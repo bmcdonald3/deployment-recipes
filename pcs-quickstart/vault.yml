@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   vault:
-    image: docker.io/library/vault:1.15
+    image: docker.io/library/vault:1.13.3
     container_name: vault
     hostname: vault
     environment:
@@ -42,7 +40,3 @@ services:
         vault kv put secret/hms-creds placeholder=placeholder-value || echo 'Secret secret/hms-creds already exists or error.' &&
         echo 'Vault initialization complete.'
       "
-
-networks:
-  internal:
-    external: true
