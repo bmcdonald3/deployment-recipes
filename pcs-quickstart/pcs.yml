@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  pcs:
+    image: power-control-power-control:latest
+    container_name: pcs
+    hostname: pcs
+    environment:
+      - SMS_SERVER=http://smd:27779
+      - STORAGE=ETCD
+      - ETCD_HOST=etcd
+      - ETCD_PORT=2379
+      - VAULT_ENABLED=true
+      - VAULT_ADDR=http://vault:8200
+      - VAULT_KEYPATH=secret/hms-creds
+      - VAULT_TOKEN=${VAULT_DEV_ROOT_TOKEN_ID:-root}
+      - LOG_LEVEL=INFO
+      - SERVICE_RESERVATION_VERBOSITY=INFO
+      - TRS_IMPLEMENTATION=LOCAL
+      - HSMLOCK_ENABLED=true
+      - API_URL=http://pcs:28007
+      - API_SERVER_PORT=:28007
+      - API_BASE_PATH=/v1
+    depends_on:
+      smd:
+        condition: service_healthy
+      etcd:
+        condition: service_healthy
+      vault:
+        condition: service_healthy
+    networks:
+      - internal
+    user: "65534:65534"
+    entrypoint: ["/sbin/tini", "--"]
+    command: ["/usr/local/bin/power-control"] 
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:28007/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s 
+
+networks:
+  internal:
+    external: true
