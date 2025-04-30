@@ -1,6 +1,6 @@
 services:
   pcs:
-    image: power-control-power-control:latest
+    image: cray-power-control:2.10.0
     container_name: pcs
     hostname: pcs
     environment:
