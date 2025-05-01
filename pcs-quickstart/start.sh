@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e.
+set -e
 
 COMPOSE_FILES=(
   -f base.yml
