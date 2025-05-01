@@ -81,7 +81,7 @@ configs/opaal-template.yaml > configs/opaal.yaml
 
 # Generate CoreDHCP configuration from configs/coredhcp-template.yaml.
 sed \
-  -e "s|<BASE_URL>|https://${SYSNAME}.${SYSDOMAIN}:8443|g" \
+  -e "s|<BASE_URL>|https://${SYSNAME}.${SYSDOMAIN}:8444|g" \
   configs/coredhcp-template.yaml > configs/coredhcp.yaml
 
 # Set the system name
