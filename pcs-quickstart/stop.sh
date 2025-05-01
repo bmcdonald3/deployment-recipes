@@ -14,4 +14,5 @@ COMPOSE_FILES=(
   -f pcs.yml
 )
 
-docker compose "${COMPOSE_FILES[@]}" down --volumes
+docker compose "${COMPOSE_FILES[@]}" down
+docker volume rm $(docker volume ls -q)
