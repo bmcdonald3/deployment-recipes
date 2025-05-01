@@ -37,6 +37,9 @@ services:
       - SMD_JWKS_URL= # To help PCS querying hardware from SMD/HSM hardware inventory without authentication
       - VAULT_ADDR=http://vault:8200
       - VAULT_TOKEN=root
+      - CRAY_VAULT_ROLE_FILE=configs/namespace
+      - CRAY_VAULT_JWT_FILE=configs/token
+      - CRAY_VAULT_AUTH_PATH=auth/token/create
       - SMD_WVAULT=true
       - SMD_RVAULT=true
     volumes:
