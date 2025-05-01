@@ -3,6 +3,8 @@ services:
     image: ghcr.io/openchami/pcs
     container_name: pcs
     hostname: pcs
+    ports:
+      - "28007:28007"
     environment:
       - SMS_SERVER=http://smd:27779
       - STORAGE=ETCD
