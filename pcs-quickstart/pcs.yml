@@ -1,6 +1,6 @@
 services:
   pcs:
-    image: cray-power-control:2.10.0
+    image: ghcr.io/openchami/pcs
     container_name: pcs
     hostname: pcs
     environment:
@@ -11,7 +11,7 @@ services:
       - VAULT_ENABLED=true
       - VAULT_ADDR=http://vault:8200
       - VAULT_KEYPATH=secret/hms-creds
-      - VAULT_TOKEN=${VAULT_DEV_ROOT_TOKEN_ID:-root}
+      - VAULT_TOKEN=root
       - LOG_LEVEL=INFO
       - SERVICE_RESERVATION_VERBOSITY=INFO
       - TRS_IMPLEMENTATION=LOCAL
@@ -19,6 +19,9 @@ services:
       - API_URL=http://pcs:28007
       - API_SERVER_PORT=:28007
       - API_BASE_PATH=/v1
+      - CRAY_VAULT_AUTH_PATH: auth/token/create
+      - CRAY_VAULT_ROLE_FILE: configs/namespace
+      - CRAY_VAULT_JWT_FILE: configs/token
     depends_on:
       smd:
         condition: service_healthy
@@ -28,6 +31,9 @@ services:
         condition: service_healthy
     networks:
       - internal
+    volumes:
+      - ./configs/namespace:/configs/namespace
+      - ./configs/token:/configs/token
     user: "65534:65534"
     command: ["/usr/local/bin/hms-power-control"] 
     healthcheck:
