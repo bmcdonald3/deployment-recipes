@@ -18,7 +18,7 @@ services:
       start_period: 5s
 
   vault-init:
-    image: docker.io/library/vault:1.15
+    image: docker.io/library/vault:1.13.3
     container_name: vault-init
     hostname: vault-init
     environment:
