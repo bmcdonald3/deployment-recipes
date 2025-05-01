@@ -10,12 +10,6 @@ services:
       - IPC_LOCK
     networks:
       - internal
-    healthcheck:
-      test: ["CMD", "curl", "--fail", "--silent", "http://127.0.0.1:8200/v1/sys/health"]
-      interval: 5s
-      timeout: 2s
-      retries: 10
-      start_period: 5s
 
   vault-init:
     image: docker.io/library/vault:1.13.3
