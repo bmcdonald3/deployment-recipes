@@ -12,6 +12,7 @@ COMPOSE_FILES=(
   -f etcd.yml
   -f vault.yml
   -f pcs.yml
+  -f computes.yml
 )
 
 docker compose "${COMPOSE_FILES[@]}" up -d
