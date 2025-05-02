@@ -12,6 +12,8 @@ services:
       internal:
         aliases:
           - x0c0s1b0
+    ports:
+      - "8444:443" 
   rf-x0c0s2b0:
     container_name: rf-x0c0s2b0
     hostname: x0c0s2b0
