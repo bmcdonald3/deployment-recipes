@@ -21,6 +21,9 @@ services:
       - API_URL=http://pcs:28007
       - API_SERVER_PORT=:28007
       - API_BASE_PATH=/v1
+      - CRAY_VAULT_AUTH_PATH=auth/token/create
+      - CRAY_VAULT_ROLE_FILE=configs/namespace
+      - CRAY_VAULT_JWT_FILE=configs/token
       - VAULT_KV_VERSION=2
     depends_on:
       smd:
