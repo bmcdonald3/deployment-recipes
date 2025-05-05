@@ -24,6 +24,7 @@ services:
       - CRAY_VAULT_AUTH_PATH=auth/token/create
       - CRAY_VAULT_ROLE_FILE=configs/namespace
       - CRAY_VAULT_JWT_FILE=configs/token
+      - VAULT_KV_VERSION=2
     depends_on:
       smd:
         condition: service_healthy
