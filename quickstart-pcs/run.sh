@@ -2,7 +2,6 @@
 
 export VAULT_ADDR=http://127.0.0.1:8200
 export VAULT_TOKEN=hms
-export SUSHY_URL="http://localhost:8000"
 
 XNAME=x1000c0s0b3
 
@@ -21,7 +20,6 @@ start_service() {
 	  -f vault.yml \
 	  -f etcd.yml \
 	  -f rfe.yml \
-	  -f sushy.yml \
 	  -f configurator.yml up -d
 	do
 	docker compose \
@@ -36,7 +34,6 @@ start_service() {
 	  -f vault.yml \
 	  -f etcd.yml \
 	  -f rfe.yml \
-	  -f sushy.yml \
 	  -f configurator.yml down
 	done
 }
