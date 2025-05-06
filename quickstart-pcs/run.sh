@@ -8,20 +8,6 @@ XNAME=x1000c0s0b3
 KEYS_PATH="keys"
 
 start_service() {
-	until docker compose \
-	  -f base.yml \
-	  -f postgres.yml \
-	  -f jwt-security.yml \
-	  -f haproxy-api-gateway.yml \
-	  -f openchami-svcs.yml \
-	  -f autocert.yml \
-	  -f coredhcp.yml \
-	  -f pcs.yml \
-	  -f vault.yml \
-	  -f etcd.yml \
-	  -f rfe.yml \
-	  -f configurator.yml up -d
-	do
 	docker compose \
 	  -f base.yml \
 	  -f postgres.yml \
@@ -34,8 +20,7 @@ start_service() {
 	  -f vault.yml \
 	  -f etcd.yml \
 	  -f rfe.yml \
-	  -f configurator.yml down
-	done
+	  -f configurator.yml up -d
 }
 
 generate_file() {
