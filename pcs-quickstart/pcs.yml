@@ -10,7 +10,8 @@ services:
     # - SMS_SERVER=http://smd:27779
       - SMS_SERVER=http://localhost:27779
       - STORAGE=ETCD
-      - ETCD_HOST=etcd
+      #- ETCD_HOST=etcd
+      - ETCD_HOST=localhost
       - ETCD_PORT=2379
       - VAULT_ENABLED=true
       #- VAULT_ADDR=http://vault:8200
