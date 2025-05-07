@@ -11,3 +11,4 @@ docker compose \
 	-f etcd.yml \
 	-f rfe.yml \
 	-f configurator.yml down
+docker volume rm $(docker volume ls -q)
