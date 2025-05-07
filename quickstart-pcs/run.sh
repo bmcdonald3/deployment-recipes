@@ -73,7 +73,7 @@ main() {
 	generate_file
 	vault_configure_jwt
 	vault_create_keystore
-	smd_populate
+	#smd_populate
 }
 
 main
