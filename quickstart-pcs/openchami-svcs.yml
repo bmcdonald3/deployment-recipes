@@ -42,6 +42,8 @@ services:
       - CRAY_VAULT_JWT_FILE=configs/token
       - SMD_WVAULT=true
       - SMD_RVAULT=true
+    ports:
+      - '27779:27779'
     volumes:
       - ./configs/namespace:/configs/namespace
       - ./configs/token:/configs/token
