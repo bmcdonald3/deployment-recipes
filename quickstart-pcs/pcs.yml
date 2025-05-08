@@ -9,7 +9,7 @@ services:
     #  - jwt-internal
     environment:
       #SMS_SERVER: http://smd:27779
-      SMS_SERVER: http://smd:27779
+      SMS_SERVER: http://localhost:27779
       VAULT_ENABLED: true
       #VAULT_ADDR: "http://vault:8200"
       VAULT_ADDR: "http://localhost:8200"
