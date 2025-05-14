@@ -42,7 +42,7 @@ services:
       - CRAY_VAULT_JWT_FILE=configs/token
       - SMD_WVAULT=true
       - SMD_RVAULT=true
-      - ENABLE_DISCOVERY=true
+      - DISABLE_DISCOVERY=true
     volumes:
       - ./configs/namespace:/configs/namespace
       - ./configs/token:/configs/token
